@@ -1,0 +1,25 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#messages {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+#textbox-wrapper {
+    height: 15%;
+}
+
+.message {
+    border:1px solid blue;
+    margin-bottom: 10px;
+
+    width: 500px;
+
+}

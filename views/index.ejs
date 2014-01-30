@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div id="messages">
+        
+    </div>
+
+    <div id="textbox-wrapper">
+    <input type="text" id="textbox" onkeydown="if (event.keyCode == 13) { send_message(); }">
+    </div>
+    <button id="post" onclick="send_message()">Post</button>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io.connect("");
+    
+      function send_message() {
+        var msg = document.getElementById("textbox").value;
+        socket.emit("new_message", { message: msg });
+      }
+
+      socket.on("broadcast", show_message);
+
+      function show_message(data) {
+        document.getElementById("messages").innerHTML = '<div class="message">'+data.message + "</div>" + document.getElementById("messages").innerHTML;
+
+        document.getElementById("textbox").value = "";
+      }
+    </script>
+  </body>
+</html>
