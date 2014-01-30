@@ -9,6 +9,7 @@
     "express": "3.4.8",
     "ejs": "*",
     "css": "*",
-    "socket.io" : "*"
+    "socket.io" : "*",
+    "mongoose" : "x",
   }
 }
