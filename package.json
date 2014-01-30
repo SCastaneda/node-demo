@@ -10,6 +10,6 @@
     "ejs": "*",
     "css": "*",
     "socket.io" : "*",
-    "mongoose" : "x",
+    "mongoose" : "x"
   }
 }
