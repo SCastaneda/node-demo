@@ -4,12 +4,13 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
+var routes  = require('./routes');
+var user    = require('./routes/user');
+var http    = require('http');
+var path    = require('path');
 
-var app = express();
+var app     = express();
+var db      = require('./db');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -38,7 +39,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 });
 
 var posts = require("./posts");
-posts.start_posts(server);
+posts.start_posts(server, db);
 
 
 

@@ -26,11 +26,21 @@
       }
 
       socket.on("broadcast", show_message);
+      socket.on("all_prev_posts", show_all);
 
       function show_message(data) {
         document.getElementById("messages").innerHTML = '<div class="message">'+data.message + "</div>" + document.getElementById("messages").innerHTML;
 
         document.getElementById("textbox").value = "";
+      }
+
+      function show_all(data) {
+
+        var posts = data.all_posts;
+        for(var i = 0; i < posts.length; i++) {
+            document.getElementById("messages").innerHTML += '<div class="message">' + posts[i].message + '</div>';
+        }
+
       }
     </script>
   </body>
